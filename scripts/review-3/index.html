@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stream TTS</title>
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Stream TTS</h1>
+
+        <textarea id="textInput" rows="5" placeholder="Type something to speak..."></textarea>
+
+        <div class="btn-row">
+            <button id="sendBtn" disabled>Generate Audio</button>
+        </div>
+
+        <div class="status-row">
+            <div id="statusDot" class="status-dot"></div>
+            <span id="status">Connecting...</span>
+        </div>
+    </div>
+
+    <script src="/client.js"></script>
+</body>
+</html>
