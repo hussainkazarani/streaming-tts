@@ -1,0 +1,29 @@
+# R4: Full-Stack Real-Time Streaming & Voice Cloning
+# Use NVIDIA's official PyTorch image with CUDA 12.1 and cuDNN pre-installed
+FROM pytorch/pytorch:2.4.0-cuda12.1-cudnn9-runtime
+
+# Force logs to stream to the terminal immediately
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+WORKDIR /app
+
+# Install system dependencies (ffmpeg is mandatory for torchaudio)
+RUN apt-get update && apt-get install -y \
+    ffmpeg \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements from the root context
+COPY requirements.txt .
+
+# Install Python dependencies
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
+
+# Copy all project folders from the root context
+COPY . .
+
+EXPOSE 8000
+
+# Start the server using the module path
+CMD ["python", "-m", "web_api.server"]
