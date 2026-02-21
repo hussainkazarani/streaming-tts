@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stream TTS</title>
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Stream TTS</h1>
+
+        <div class="section-label">Voice</div>
+        <div id="voiceList">
+            <span class="voice-loading">Loading voices...</span>
+        </div>
+
+        <textarea id="textInput" rows="5" placeholder="Type something to speak..."></textarea>
+
+        <div class="btn-row">
+            <button id="sendBtn" disabled>Generate Audio</button>
+        </div>
+
+        <div class="status-row">
+            <div id="statusDot" class="status-dot"></div>
+            <span id="status">Waiting for user...</span>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <h2>Add Voice</h2>
+            <input type="text" id="voiceName" placeholder="Voice name">
+            <input type="text" id="voiceTranscript" placeholder="What the audio says">
+            <input type="file" id="voiceFile" accept=".wav">
+            <div id="modalStatus"></div>
+            <div class="modal-btns">
+                <button id="modalCancel">Cancel</button>
+                <button id="modalUpload">Upload</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/client.js"></script>
+</body>
+</html>
