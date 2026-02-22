@@ -11,6 +11,9 @@ WORKDIR /app
 # Install system dependencies (ffmpeg is mandatory for torchaudio)
 RUN apt-get update && apt-get install -y \
     ffmpeg \
+    git \
+    gcc \
+    g++ \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy requirements from the root context
@@ -26,4 +29,4 @@ COPY . .
 EXPOSE 8000
 
 # Start the server using the module path
-CMD ["python", "-m", "web_api.server"]
+CMD ["python", "-m", "backend.web_api.server"]

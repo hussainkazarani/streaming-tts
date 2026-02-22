@@ -8,7 +8,10 @@ WORKDIR /app
 
 # Install ffmpeg (required by torchaudio for reading/writing wav files)
 RUN apt-get update && apt-get install -y \
-    ffmpeg \
+    ffmpeg \ 
+    git \
+    gcc \
+    g++ \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy root requirements
