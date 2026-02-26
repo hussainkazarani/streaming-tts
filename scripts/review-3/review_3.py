@@ -424,6 +424,7 @@ def split_text(text: str, max_words: int = MAX_WORDS_PER_CHUNK) -> list:
 
 # Serve static files relative to this script's location
 FILES_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)))
+PROJECT_ROOT = os.path.join(FILES_DIR, "..", "..")
 
 @app.get("/")
 async def get_index():
@@ -431,6 +432,14 @@ async def get_index():
     if not os.path.exists(html_path):
         return f"Error: Could not find index.html at {html_path}"
     return FileResponse(html_path)
+
+@app.get("/favicon.ico")
+async def favicon():
+    return FileResponse(os.path.join(PROJECT_ROOT, "assets", "favicon.ico"))
+
+@app.get("/background.webp")
+async def get_background():
+    return FileResponse(os.path.join(PROJECT_ROOT, "assets", "background.webp"))
 
 @app.get("/client.js")
 async def get_js():

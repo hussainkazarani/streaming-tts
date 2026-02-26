@@ -63,6 +63,10 @@ async def get_index():
 async def favicon():
     return FileResponse(os.path.join(_project_root, "assets", "favicon.ico"))
 
+@app.get("/background.webp")
+async def get_background():
+    return FileResponse(os.path.join(_project_root, "assets", "background.webp"))
+
 @app.get("/client.js")
 async def get_client_js():
     """Serves the frontend JavaScript logic."""

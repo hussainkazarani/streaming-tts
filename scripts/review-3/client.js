@@ -50,6 +50,12 @@ ws.onmessage = (event) => {
     }
 };
 
+window.addEventListener("beforeunload", () => {
+    if (ws && ws.readyState === WebSocket.OPEN) {
+        ws.close(1000, "User refreshed/closed tab");
+    }
+});
+
 // ----------------------------------------------------------------
 // Wait for all scheduled audio to finish, then re-enable button
 // ----------------------------------------------------------------
