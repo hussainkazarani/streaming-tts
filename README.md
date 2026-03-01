@@ -11,7 +11,7 @@ I wanted a system that could generate human-sounding speech instantly. So, I too
     <img src="./assets/tts-architecture.jpg" alt="Architecture Diagram" width="100%">
 </p>
 
-https://github.com/user-attachments/assets/44bc2031-f10c-4587-acec-2b98c188f5f1
+https://github.com/user-attachments/assets/76bd5a15-e6c3-4850-93be-8984a566bb46
 
 ## The Models Under the Hood
 The engine is powered by **Sesame CSM-1B**, a 1 billion parameter conversational speech model built on a Llama transformer backbone. Unlike traditional TTS models that just do a basic text-to-waveform conversion, CSM-1B processes text and audio inputs simultaneously using a multimodal architecture. 
@@ -44,4 +44,4 @@ Instead of training a new model, you simply drop a short `.wav` reference file i
 This repository is structured for both containerized deployments and bare-metal execution.
 
 1. **[Docker Deployment Guide](docs/docker-deployment.md):** Includes instructions for setting up the EC2 host, injecting environment variables (`HF_TOKEN`), and running the specific project milestones.
-2. **[Normal Setup](docs/normal-deploymeny.md):** For running the system natively without Docker. Covers NVIDIA driver installation, virtual environments, and system-level `sudo` execution.
+2. **[Normal Setup](docs/normal-deployment.md):** For running the system natively without Docker. Covers NVIDIA driver installation, virtual environments, and system-level `sudo` execution.
